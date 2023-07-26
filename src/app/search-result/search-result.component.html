@@ -1,0 +1,16 @@
+<div *ngIf="books">
+    <div *ngIf="books.length > 0; else noBooks">
+    <h2 [ngClass]="{'length-2':books.length == 2, 'length-3' : books.length==3}">Resultat</h2>
+    <p>Nombre de livres trouvés: {{books.length}}</p>
+    <!-- {{books | json}} -->
+  
+    <ul>
+        <li *ngFor="let book of books">
+            <!-- <a [routerLink]="['/detail', book.id]">[{{ book.id}}] {{ book.title}}</a>-->
+            <a routerLink="/detail/{{book.id}}">[{{ book.id}}] {{ book.title}}</a>
+        </li>
+    </ul>
+   
+   </div>
+   <ng-template #noBooks><h2>Pas de Résultat</h2></ng-template>
+   </div>

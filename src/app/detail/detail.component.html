@@ -1,0 +1,24 @@
+<div *ngIf="book">
+ 
+    <h1>{{book.title}}</h1>
+    <!-- {{books | json}} -->
+    <img src="/api/images/{{book.imageId}}" alt="{{book.title}}" class="book-image">
+    <div><strong>Auteurs : </strong>{{book.authors | join:'name'}}</div>
+    <div><strong>Tags : </strong>{{book.tags| join}}</div>
+    <div><strong>Categorie : </strong>{{book.category.name}}</div>
+    <div><strong>Price : </strong>{{book.price}} €</div>
+    <div><strong>ISBN : </strong>{{book.isbn}}</div>
+    <div><strong>Date de publication : </strong>{{book.release | date: 'dd/MM/yyyy'}}</div>
+    <div><strong>Résumé : </strong>{{book.overview}}</div>
+   </div>
+
+   <form #basketForm="ngForm" (ngSubmit)="addToBasket(basketForm)" class="needs-validation">
+    <!-- Quantity input --> 
+    <div class="mb-3">
+      <label for="quantityInput" class="form-label" placeholder="Quantité"></label>
+      <input type="number" class="form-control" id="quantityInput" name="quantity" [(ngModel)]="data.quantity" required #quantity="ngModel">
+    </div>
+
+    <button type="submit" class="btn">Ajouter au panier</button>
+    </form>
+

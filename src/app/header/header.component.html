@@ -1,0 +1,31 @@
+<header class="header mt-auto py-3">
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-md navbar-warning fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Boutique Eshop</a>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" routerLink="/home" routerLinkActive="active">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/search" routerLinkActive="active">Recherche</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">Authentification</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/orders/user/:username" routerLinkActive="active">Commandes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/orders/checkout" routerLinkActive="active">Panier</a>
+        </li>
+      </ul>
+      <div *ngIf="session.user" class="title">
+        Bienvenue {{session.user.firstName}} {{session.user.lastName}}
+      </div>
+    </div>
+  </div>
+</nav>
+</header>

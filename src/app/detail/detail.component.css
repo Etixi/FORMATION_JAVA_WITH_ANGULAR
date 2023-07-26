@@ -1,0 +1,12 @@
+.book-image {
+    width: 300px;
+}
+.btn {
+    background: #7cbedf;
+    color: white;
+    border-radius: 10px;
+}
+.btn:hover {
+    background: #159bc0;
+    border-radius: 10px;
+  }

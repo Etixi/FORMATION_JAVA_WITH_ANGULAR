@@ -1,0 +1,24 @@
+<div class="title"><h2>Mes commandes</h2></div>
+
+<div *ngIf="orders">
+    <ul *ngFor="let order of orders">
+            <h5>N°{{order.number}}</h5>
+            <li>Date de création : {{order.created}}</li>
+            <li>Statut : {{order.status}}</li>
+            <li>Montant total : {{order.totalAmount}} €</li>
+            
+            <ul *ngFor="let item of order.items">
+
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary me-2"
+                    placement="bottom"
+                    ngbPopover="Quantité : {{item.quantity}}"
+                    popoverTitle="{{item.book.title}}">
+                    <strong>{{item.book.title}}</strong>
+                </button>
+            </ul>
+    </ul>
+</div>
+
+

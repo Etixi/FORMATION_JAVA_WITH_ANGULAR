@@ -1,0 +1,15 @@
+
+<div class="title"><h2>Recherche</h2></div>
+
+<div class="search">
+<form (ngSubmit)="onSearch()">
+<input type="text" name="keyword" placeholder="votre recherche" [(ngModel)]="data.keyword">
+
+<select name="catId" [(ngModel)]="data.catId">
+    <option value="-1">--- Toutes les catégories ---</option>
+    <option *ngFor="let cat of categories" name="catId" value="{{cat.id}}">{{ cat.name }}</option>
+</select>
+
+<button type="submit"><i class="bi bi-search"></i></button>
+</form>
+</div>

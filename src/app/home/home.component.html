@@ -1,0 +1,14 @@
+<div>
+    <h2 class="title">Bienvenue sur la boutique</h2>
+</div>
+
+<ngb-carousel class="carousel">
+	<ng-template ngbSlide *ngFor="let book of books">
+		<div class="picsum-img-wrapper">
+			<img src="/api/images/{{book.imageId}}" class="w-50" alt="Livre"/>
+		</div>
+		<div class="carousel-caption">
+		</div>
+	</ng-template>
+</ngb-carousel>
+

@@ -1,0 +1,31 @@
+<div>
+  <h2>Authentification</h2>
+</div>
+
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="needs-validation">
+    <!-- Email input --> 
+    <div class="mb-3">
+      <label for="usernameInput" class="form-label">Adresse mail</label>
+      <input type="email" class="form-control" id="usernameInput" name="username" 
+      [(ngModel)]="data.username" required email #username="ngModel"
+      [ngClass]="{'is-invalid': (username.dirty || loginForm.submitted) && username.invalid}"/>
+      <div *ngIf="(username.dirty || loginForm.submitted) && username.hasError('required')" class="invalid-feedback">Identifiant obligatoire</div>
+      <div *ngIf="(username.dirty || loginForm.submitted) && username.hasError('email')" class="invalid-feedback">Saisir votre adresse mail</div>
+    </div>
+  
+    <!-- Password input -->
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label">Mot de passe</label>
+      <input type="password" id="passwordInput" class="form-control" name="password" 
+      [(ngModel)]="data.password" required #password="ngModel"
+      [ngClass]="{'is-invalid': (password.dirty || loginForm.submitted) && password.invalid}"/>
+      <div *ngIf="(password.dirty || loginForm.submitted) && password.hasError('required')" class="invalid-feedback">Mot de passe obligatoire</div>
+    </div>
+  
+    <!-- Submit button -->
+    <button type="submit" class="btn">Se connecter</button>
+
+    <div *ngIf="error" class="alert alert-danger mt-5" role="alert">
+      Echec de l'authentification
+    </div>
+  

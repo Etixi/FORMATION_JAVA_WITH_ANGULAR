@@ -1,0 +1,18 @@
+<div *ngIf="basket; else elseBlock">
+ 
+    <h1>Mon panier</h1>
+    <!-- {{books | json}} -->
+    <ul *ngFor="let item of basket.items">
+        <li>{{item.book.title}}</li>
+        <p>Quantité : {{item.quantity}}</p>
+        <p>Prix à l'unité : {{item.book.price}}</p>
+    </ul>
+    <p>Montant total : {{basket.getTotalAmount()}}</p>
+
+   <form #orderForm="ngForm" (ngSubmit)="checkout()" class="needs-validation">
+
+    <button type="submit" class="btn">Passer votre commande</button>
+    </form>
+    </div>
+
+<ng-template #elseBlock>Votre panier est vide.</ng-template>
